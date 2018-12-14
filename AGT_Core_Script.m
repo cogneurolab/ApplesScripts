@@ -145,7 +145,7 @@ title('Smoothed (36) response rate for 2 groups across entire experiment')
 
 if 0 % draw some other graphs of correlations.
     figure()
-    scatterRegress(aesVec,accept);
+    scatterRegress(AMI_T,accept);
     xlabel('Increasing apathy severity --> (aesVec)')
     ylabel('Number of offers accepted');
     title('aesVec & Offers accepted');
