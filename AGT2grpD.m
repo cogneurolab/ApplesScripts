@@ -1,4 +1,4 @@
-%change
+
 
 
 clear
@@ -7,8 +7,8 @@ addpath(genpath('Apples v2'));
 
 %first create group names. You can add multiple allStudyGroups but for this
 %particular script I will stick with one. 
-allStudyGroups = {{'Apples_%g', [1:15]}}; %expects the raw data to have file format Apples_YC0*.mat
-groupName = {'PD'};
+allStudyGroups = {{'Apples_%g', [1:6]}}; %expects the raw data to have file format Apples_YC0*.mat
+groupName = {'AD'};
 % Move data into an array (one cell for on and off), each row = 1 subject
 %loop through allStudyGroups
 for subs = 1:length(allStudyGroups)
@@ -49,7 +49,7 @@ for subs = 1:length(allStudyGroups)
     
    D=alld{subs};
    
-    save('AGT_DATA_Cam13','D');
+    save('AGT_DATA_AD','D');
     save('mF','mF')
     save('AUC1','AUC1')
 
@@ -134,7 +134,7 @@ for i=1:size(D.R,1) % for each subject in each state
     % added by YS on 23/8/2018
     yesLoc = d.yeslocation(i,1:125)';
    % H = d.hand(:,126:135); %pretty irrelevant as we only have 1 hand
-end
+
 
     %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     
@@ -177,6 +177,7 @@ end
             end
         end
     end
+    end
     % And now remove all trials where decision time was less than certain
     % value (e.g. 400ms) - replace them with nan
     for effort = 1:5
@@ -206,4 +207,4 @@ D.Yestrial(isnan(D.Yestrial))=0;
 D.stake = D.stake(:,1:125);
 D.effort = D.effort(:,1:125);
 
-save('AGT_grpD_PD')
+save('AGT_grpD_AD')
